@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dull Motors · Oficina de nacionais e importados em Sorocaba</title>
+<meta name="description" content="Oficina em Sorocaba especializada em carros nacionais, importados e de alto desempenho. Mecânica, diagnóstico e avaliação de pré-compra.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --asfalto:#1A1A1A;      /* fundo do logo */
+  --grafite:#242422;
+  --laranja:#FE7002;      /* laranja do logo */
+  --laranja-escuro:#C85500;
+  --concreto:#EFEFED;     /* fundo dos posts */
+  --fumaca:#A3A39E;
+  --branco:#FFFFFF;
+  --linha:rgba(255,255,255,.14);
+  --wpp:#25D366;
+  --max:1240px;
+  --gutter:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--asfalto);color:var(--branco);font-family:"Archivo",system-ui,sans-serif;font-size:17px;line-height:1.6;font-variation-settings:"wdth" 100;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--laranja);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+
+/* Tipografia de pista: itálico pesado e expandido, como no logo */
+.display{font-style:italic;font-weight:850;font-variation-settings:"wdth" 118;line-height:1.02;letter-spacing:-.01em}
+/* Faixa laranja dos posts da Dull */
+.slab{display:inline-block;background:var(--laranja);color:var(--asfalto);padding:.08em .32em .1em .28em;box-shadow:6px 6px 0 rgba(0,0,0,.18)}
+.slab-line{display:block;width:fit-content;max-width:100%}
+.slab-line + .slab-line{margin-top:.14em}
+
+/* Navegação: transparente sobre a foto, sólida ao rolar */
+.nav{position:fixed;top:0;left:0;right:0;z-index:40;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.solida{background:rgba(26,26,26,.94);backdrop-filter:blur(10px);border-color:var(--linha)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:112px;gap:24px;transition:height .3s}
+.nav.solida .wrap{height:80px}
+.nav-logo img{height:84px;width:auto;transition:height .3s;filter:drop-shadow(0 2px 10px rgba(0,0,0,.5))}
+.nav.solida .nav-logo img{height:58px}
+.nav ul{display:flex;align-items:center;gap:36px;list-style:none;font-size:16px;font-weight:600}
+.nav ul a{text-decoration:none;color:#f0f0ec;padding:6px 0;border-bottom:2px solid transparent;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.nav ul a:hover{color:var(--branco);border-color:var(--laranja)}
+.nav .nav-tel{display:inline-flex;align-items:center;gap:8px;border:0}
+.nav .nav-tel svg{width:20px;height:20px;color:var(--wpp)}
+.btn{display:inline-flex;align-items:center;gap:10px;font:inherit;font-weight:700;font-size:16px;text-decoration:none;border:0;cursor:pointer;padding:15px 24px;transition:background .2s,color .2s,transform .2s}
+.btn-laranja{background:var(--laranja);color:var(--asfalto)}
+.btn-laranja:hover{background:#ff8a2e}
+.btn-contorno{background:rgba(0,0,0,.25);color:var(--branco);box-shadow:inset 0 0 0 2px rgba(255,255,255,.55);backdrop-filter:blur(4px)}
+.btn-contorno:hover{box-shadow:inset 0 0 0 2px var(--branco)}
+@media (max-width:860px){
+  .nav ul{display:none}
+  .nav .wrap{height:84px}.nav.solida .wrap{height:68px}
+  .nav-logo img{height:60px}.nav.solida .nav-logo img{height:46px}
+}
+
+/* Hero: foto em tela cheia, texto centralizado sobre o céu */
+.hero{position:relative;min-height:max(640px,100svh);display:flex;align-items:flex-start;justify-content:center;text-align:center;overflow:hidden;
+  background:var(--asfalto) url(img/hero-camaro.jpg) center 30%/cover no-repeat}
+.hero::before{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(10,10,10,.8) 0%,rgba(10,10,10,.5) 22%,rgba(10,10,10,.28) 42%,rgba(10,10,10,0) 58%,rgba(10,10,10,0) 80%,var(--asfalto) 100%),
+  radial-gradient(ellipse 42% 30% at 50% 36%,rgba(0,0,0,.38),transparent 75%)}
+.hero-texto{position:relative;z-index:1;padding:clamp(140px,17vh,190px) var(--gutter) 0;max-width:1100px;display:flex;flex-direction:column;align-items:center}
+.hero h1{font-size:clamp(36px,4.4vw,74px);font-variation-settings:"wdth" 108;text-shadow:0 4px 30px rgba(0,0,0,.35)}
+.hero h1 .claro{display:block;color:var(--branco);margin-bottom:.1em}
+.hero h1 .slab-line{margin:0 auto;text-shadow:none}
+@media (min-width:861px){.hero h1 .slab-line{white-space:nowrap;max-width:none}}
+.hero-lead{max-width:46em;margin-top:24px;text-wrap:balance;font-size:clamp(17px,1.4vw,20px);color:#f2f2ee;text-shadow:0 1px 12px rgba(0,0,0,.7)}
+.hero-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:34px}
+.hero-assinatura{position:absolute;z-index:1;left:var(--gutter);bottom:clamp(28px,5vh,56px);text-align:left;border-left:4px solid var(--laranja);padding:4px 0 4px 16px;font-size:15px;line-height:1.45;color:#e6e6e2}
+.hero-assinatura strong{display:block;font-style:italic;font-weight:800;font-size:19px;font-variation-settings:"wdth" 115;color:var(--branco)}
+@media (min-width:1400px){.hero-assinatura{left:calc((100vw - var(--max)) / 2 + var(--gutter))}}
+@media (max-width:860px){
+  .hero{background-position:40% 50%}
+  .hero::before{background:linear-gradient(180deg,rgba(10,10,10,.88) 0%,rgba(10,10,10,.6) 45%,rgba(10,10,10,.1) 68%,var(--asfalto) 100%)}
+  .hero-texto{padding-top:120px}
+  .hero-assinatura{display:none}
+}
+
+/* Faixa de marcas rotativa */
+.marcas{background:var(--laranja);color:var(--asfalto);overflow:hidden;border-block:1px solid rgba(0,0,0,.2)}
+.marcas-trilho{display:flex;width:max-content;animation:rolar 38s linear infinite}
+.marcas:hover .marcas-trilho{animation-play-state:paused}
+.marcas ul{display:flex;align-items:center;list-style:none;padding:22px 0}
+.marcas li{font-style:italic;font-weight:850;font-variation-settings:"wdth" 118;font-size:clamp(20px,2vw,28px);letter-spacing:.01em;white-space:nowrap;display:flex;align-items:center}
+.marcas li::after{content:"";width:22px;height:8px;background:var(--asfalto);transform:skewX(-24deg);margin:0 clamp(26px,3vw,44px);opacity:.85}
+@keyframes rolar{to{transform:translateX(-50%)}}
+
+/* Duas pistas */
+.pistas{border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+.pistas .wrap{display:grid;grid-template-columns:1fr 1fr}
+.pistas article{padding:clamp(40px,6vw,72px) clamp(0px,3vw,48px) clamp(40px,6vw,72px) 0}
+.pistas article + article{border-left:1px solid var(--linha);padding-left:clamp(24px,4vw,56px)}
+.pistas h2{font-size:clamp(26px,3vw,38px);margin-bottom:16px}
+.pistas h2.alt{color:var(--laranja)}
+.pistas p{color:#cfcfcb;max-width:30em}
+.pistas .exemplos{margin-top:20px;font-size:15px;color:var(--fumaca)}
+@media (max-width:760px){
+  .pistas .wrap{grid-template-columns:1fr}
+  .pistas article + article{border-left:0;border-top:1px solid var(--linha);padding-left:0}
+}
+
+/* Seções */
+.secao{padding:clamp(72px,10vw,128px) 0}
+.secao-titulo{font-size:clamp(30px,4.2vw,54px);margin-bottom:22px}
+.secao-intro{max-width:36em;color:#cfcfcb;font-size:18px}
+
+/* Serviços */
+.servicos-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,96px);align-items:start}
+.servicos-grid .cab{position:sticky;top:120px}
+.lista-servicos{list-style:none;border-top:1px solid var(--linha)}
+.lista-servicos li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:24px;padding:26px 0;border-bottom:1px solid var(--linha)}
+.lista-servicos h3{font-style:italic;font-weight:800;font-variation-settings:"wdth" 112;font-size:21px;line-height:1.2}
+.lista-servicos p{color:#c6c6c2;font-size:16px}
+.lista-servicos li.destaque h3{color:var(--laranja)}
+@media (max-width:860px){
+  .servicos-grid{grid-template-columns:1fr}
+  .servicos-grid .cab{position:static}
+  .lista-servicos li{grid-template-columns:1fr;gap:6px}
+}
+
+/* Pré-compra (claro, como os posts) */
+.claro-sec{background:var(--concreto);color:var(--asfalto)}
+.claro-sec .secao-intro{color:#3c3c3a}
+.claro-sec .slab{box-shadow:6px 6px 0 rgba(0,0,0,.08)}
+.precompra-topo{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,5vw,72px);align-items:center}
+.precompra-topo img{width:100%;height:auto}
+.carro-pista{position:relative;padding:14% 0 10%}
+.carro-pista svg{position:absolute;left:-12%;right:-4%;top:0;bottom:0;width:116%;height:100%;overflow:visible}
+.carro-pista path{fill:none;stroke:var(--laranja)}
+.carro-pista img{position:relative;width:100%;height:auto;filter:drop-shadow(0 22px 18px rgba(0,0,0,.28))}
+.beneficios-titulo{margin-top:clamp(56px,7vw,88px);font-size:15px;font-weight:700;color:#5a5a57}
+.beneficios{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0 28px;margin-top:16px;border-top:3px solid var(--asfalto)}
+.beneficios li{padding:26px 0 0;position:relative}
+.beneficios li::before{content:"";display:block;width:36px;height:6px;background:var(--laranja);transform:skewX(-20deg);margin-bottom:18px}
+.beneficios h4{font-style:italic;font-weight:800;font-variation-settings:"wdth" 110;font-size:20px;line-height:1.2;margin-bottom:8px}
+.beneficios p{font-size:15.5px;color:#454543}
+.precompra-cta{margin-top:clamp(56px,7vw,80px);display:flex;flex-wrap:wrap;align-items:center;gap:20px 32px}
+.precompra-cta .display{font-size:clamp(26px,3vw,38px)}
+.btn-escuro{background:var(--asfalto);color:var(--branco)}
+.btn-escuro:hover{background:var(--laranja-escuro)}
+@media (max-width:860px){
+  .precompra-topo{grid-template-columns:1fr}
+  .beneficios{grid-template-columns:1fr 1fr;row-gap:16px}
+}
+@media (max-width:480px){.beneficios{grid-template-columns:1fr}}
+
+/* Oficina */
+.galeria{display:grid;grid-template-columns:1fr 1fr 1.1fr;grid-auto-rows:clamp(300px,34vw,500px);gap:14px;margin-top:48px}
+.galeria figure{position:relative;overflow:hidden;background:var(--grafite)}
+.galeria img{width:100%;height:100%;object-fit:cover}
+.galeria figure:nth-child(3) img{object-position:50% 30%}
+.galeria figcaption{position:absolute;left:0;bottom:0;right:0;padding:40px 16px 14px;font-size:14px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+.oficina-nota{margin-top:28px;color:var(--fumaca);font-size:15px;max-width:44em}
+@media (max-width:760px){
+  .galeria{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
+  .galeria figure{aspect-ratio:4/5}
+  .galeria figure:nth-child(3){grid-column:span 2}
+}
+
+/* Contato */
+.contato{background:var(--grafite)}
+.contato-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(40px,6vw,96px)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px;margin-top:40px}
+.campo{display:flex;flex-direction:column;gap:8px}
+.campo.cheio{grid-column:1/-1}
+label{font-size:14px;font-weight:600;color:#e2e2de}
+label .opc{font-weight:400;color:var(--fumaca)}
+input,select,textarea{font:inherit;font-size:16px;color:var(--branco);background:var(--asfalto);border:1px solid rgba(255,255,255,.2);padding:14px 14px;border-radius:0;width:100%}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--laranja) 50%),linear-gradient(135deg,var(--laranja) 50%,transparent 50%);background-position:calc(100% - 20px) 52%,calc(100% - 14px) 52%;background-size:6px 6px;background-repeat:no-repeat}
+textarea{min-height:140px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--laranja);box-shadow:0 0 0 1px var(--laranja)}
+.erro{font-size:13.5px;color:#ffb27a;min-height:0}
+.campo.invalido input,.campo.invalido textarea{border-color:#ff8a3d}
+.form-rodape{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:6px}
+.form-rodape small{color:var(--fumaca);font-size:14px;max-width:30em}
+.btn-wpp{background:var(--wpp);color:#0c2a16}
+.btn-wpp:hover{background:#3be37a}
+.btn svg{width:20px;height:20px;flex:none}
+.info{border-top:3px solid var(--laranja);padding-top:28px;margin-top:8px}
+.info dl{display:grid;gap:22px}
+.info dt{font-size:14px;color:var(--fumaca);margin-bottom:2px}
+.info dd{font-size:18px;font-weight:600;line-height:1.4}
+.info dd a{text-decoration:none;border-bottom:1px solid rgba(254,112,2,.6)}
+.info dd a:hover{color:var(--laranja)}
+@media (max-width:860px){.contato-grid{grid-template-columns:1fr}}
+@media (max-width:560px){form{grid-template-columns:1fr}}
+
+/* Rodapé */
+footer{padding:44px 0 110px;border-top:1px solid var(--linha);font-size:14px;color:var(--fumaca)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px}
+footer img{height:40px;width:auto}
+
+/* WhatsApp flutuante */
+.wpp-float{position:fixed;right:22px;bottom:22px;z-index:50;width:62px;height:62px;border-radius:50%;background:var(--wpp);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.35);border:0;cursor:pointer;transition:transform .2s}
+.wpp-float:hover{transform:scale(1.07)}
+.wpp-float svg{width:34px;height:34px;fill:#fff}
+.wpp-float .dica{position:absolute;right:74px;white-space:nowrap;background:var(--branco);color:var(--asfalto);font-size:14px;font-weight:600;padding:8px 12px;opacity:0;transform:translateX(6px);transition:opacity .2s,transform .2s;pointer-events:none}
+.wpp-float:hover .dica,.wpp-float:focus-visible .dica{opacity:1;transform:none}
+
+/* Momento único de movimento: a pista se desenha e as faixas entram.
+   Roda sempre, inclusive com 'reduzir movimento' ativo no sistema: é curto, acontece uma vez e não se repete. */
+@supports (clip-path:inset(0)){
+  .hero h1 .slab-line{clip-path:inset(0 100% 0 0);animation:faixa .7s cubic-bezier(.7,0,.2,1) forwards}
+  .hero h1 .slab-line:nth-of-type(2){animation-delay:.6s}
+  .hero h1 .slab-line:nth-of-type(3){animation-delay:.75s}
+  @keyframes faixa{to{clip-path:inset(0 0 0 0)}}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="nav-logo" href="#topo" aria-label="Dull Motors, início"><img src="img/logo.png" alt="Dull Motors Serviços Automotivos"></a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#oficina">Oficina</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a class="nav-tel" href="#contato" data-ir-form><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#ico-wpp"/></svg>(15) 99678-3479</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero">
+    <div class="hero-texto">
+      <h1 class="display">
+        <span class="claro">A excelência</span>
+        <span class="slab slab-line">começa nos detalhes.</span>
+      </h1>
+      <p class="hero-lead">Especialistas em mecânica automotiva, diagnóstico e avaliação de veículos nacionais e importados em Sorocaba. Tecnologia, conhecimento e cuidado para entregar o melhor em cada serviço.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-laranja" href="#contato" data-ir-form>Pedir orçamento</a>
+        <a class="btn btn-contorno" href="#servicos">Conheça nossos serviços</a>
+      </div>
+    </div>
+    <p class="hero-assinatura"><strong>Precisão em cada ajuste.</strong>Confiança em cada quilômetro.</p>
+  </section>
+
+  <section class="marcas" aria-label="Marcas que atendemos">
+    <div class="marcas-trilho">
+      <ul><li>Toyota</li><li>Volkswagen</li><li>Chevrolet</li><li>Fiat</li><li>Honda</li><li>Hyundai</li><li>Jeep</li><li>Renault</li><li>Nissan</li><li>BMW</li><li>Mercedes-Benz</li><li>Audi</li><li>Porsche</li><li>Volvo</li><li>Land Rover</li><li>Mini</li></ul>
+      <ul aria-hidden="true"><li>Toyota</li><li>Volkswagen</li><li>Chevrolet</li><li>Fiat</li><li>Honda</li><li>Hyundai</li><li>Jeep</li><li>Renault</li><li>Nissan</li><li>BMW</li><li>Mercedes-Benz</li><li>Audi</li><li>Porsche</li><li>Volvo</li><li>Land Rover</li><li>Mini</li></ul>
+    </div>
+  </section>
+
+  <section class="pistas" aria-label="O que atendemos">
+    <div class="wrap">
+      <article>
+        <h2 class="display">Nacionais</h2>
+        <p>Revisão, manutenção e reparo para o carro que leva você ao trabalho, à escola e na estrada. Preço justo, prazo combinado e explicação clara do que foi feito.</p>
+        <p class="exemplos">Hatches, sedãs, SUVs e utilitários das marcas nacionais</p>
+      </article>
+      <article>
+        <h2 class="display alt">Importados e alto desempenho</h2>
+        <p>Esportivos, premium e superesportivos tratados por quem conhece a mecânica e respeita o carro. Diagnóstico preciso antes de qualquer peça ser trocada.</p>
+        <p class="exemplos">Esportivos, SUVs premium e elétricos de alto padrão</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="secao" id="servicos">
+    <div class="wrap servicos-grid">
+      <div class="cab">
+        <h2 class="display secao-titulo"><span class="slab">Serviços</span></h2>
+        <p class="secao-intro">Tudo o que o seu carro precisa em um só lugar, do check-up de rotina ao diagnóstico mais detalhado.</p>
+      </div>
+      <ul class="lista-servicos">
+        <li><h3>Revisão e manutenção preventiva</h3><p>Troca de óleo, filtros, correias e fluidos no intervalo certo para o seu modelo.</p></li>
+        <li><h3>Diagnóstico eletrônico</h3><p>Leitura com scanner para encontrar a causa da falha antes de trocar qualquer peça.</p></li>
+        <li><h3>Motor e injeção</h3><p>Perda de potência, consumo alto, falhas e luz de injeção acesa.</p></li>
+        <li><h3>Freios e suspensão</h3><p>Pastilhas, discos, amortecedores e alinhamento para dirigir com segurança.</p></li>
+        <li class="destaque"><h3>Avaliação de pré-compra</h3><p>Inspeção completa do seminovo antes de você fechar negócio.</p></li>
+        <li class="destaque"><h3>Esportivos e importados</h3><p>Manutenção especializada para carros de alto desempenho, com o cuidado que eles merecem.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao claro-sec" id="pre-compra">
+    <div class="wrap">
+      <div class="precompra-topo">
+        <div>
+          <h2 class="display secao-titulo">
+            <span class="slab slab-line">Avaliação de</span>
+            <span class="slab slab-line">pré-compra</span>
+          </h2>
+          <p class="secao-intro">Antes de fechar negócio em um seminovo, traga o carro para uma avaliação completa na Dull Motors. Você fica sabendo exatamente o estado do veículo e evita surpresas e custos inesperados.</p>
+        </div>
+        <figure class="carro-pista">
+          <svg viewBox="0 0 900 560" aria-hidden="true" preserveAspectRatio="none">
+            <path d="M0 560 C 40 300, 300 90, 900 30" stroke-width="46"/>
+            <path d="M150 560 C 200 360, 430 190, 900 120" stroke-width="28" opacity=".55"/>
+            <path d="M300 560 C 360 420, 560 290, 900 215" stroke-width="16" opacity=".3"/>
+          </svg>
+          <img src="img/audi-recorte.webp" alt="SUV branco, exemplo de seminovo avaliado antes da compra" width="1000" height="484" loading="lazy">
+        </figure>
+      </div>
+      <h3 class="beneficios-titulo">Por que avaliar antes de comprar</h3>
+      <ul class="beneficios">
+        <li><h4>Evite surpresas e prejuízos</h4><p>Identifique problemas mecânicos que podem gerar gastos inesperados depois da compra.</p></li>
+        <li><h4>Conheça o real estado do veículo</h4><p>Avaliamos motor, câmbio, suspensão, freios e os demais componentes essenciais.</p></li>
+        <li><h4>Negocie com mais segurança</h4><p>Tenha informações técnicas para negociar o preço com base nas condições reais do carro.</p></li>
+        <li><h4>Compre com tranquilidade</h4><p>Tome uma decisão mais consciente, reduzindo os riscos antes de fechar negócio.</p></li>
+      </ul>
+      <div class="precompra-cta">
+        <p class="display">E aí, vamos fazer a sua?</p>
+        <a class="btn btn-escuro" href="#contato" data-ir-form data-assunto="Avaliação de pré-compra">Agendar avaliação de pré-compra</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="oficina">
+    <div class="wrap">
+      <h2 class="display secao-titulo"><span class="slab">Na oficina</span></h2>
+      <p class="secao-intro">Se você tem um superesportivo e busca uma oficina de confiança, ele vai estar em boas mãos aqui.</p>
+      <div class="galeria">
+        <figure><img src="img/supra-front.jpg" alt="Frente do Toyota GR Supra 2021 na oficina, com outro carro no elevador ao fundo" loading="lazy"><figcaption>GR Supra 2021, frente</figcaption></figure>
+        <figure><img src="img/supra-rear.jpg" alt="Traseira do Toyota GR Supra 2021 na oficina" loading="lazy"><figcaption>GR Supra 2021, traseira</figcaption></figure>
+        <figure><img src="img/supra-equipe.jpg" alt="Profissional da Dull Motors ao lado do Toyota GR Supra 2021" loading="lazy"><figcaption>Entrega do Supra pela equipe Dull Motors</figcaption></figure>
+      </div>
+      <p class="oficina-nota">Acompanhe mais trabalhos no Instagram <a href="https://www.instagram.com/dullmotors/" target="_blank" rel="noopener">@dullmotors</a>.</p>
+    </div>
+  </section>
+
+  <section class="secao contato" id="contato">
+    <div class="wrap contato-grid">
+      <div>
+        <h2 class="display secao-titulo"><span class="slab">Fale com a gente</span></h2>
+        <p class="secao-intro">Preencha os dados e a mensagem abre pronta no WhatsApp da Dull Motors. É só tocar em enviar.</p>
+
+        <form id="form-contato" novalidate>
+          <div class="campo">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" autocomplete="name" required>
+            <span class="erro" aria-live="polite"></span>
+          </div>
+          <div class="campo">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+            <span class="erro" aria-live="polite"></span>
+          </div>
+          <div class="campo">
+            <label for="assunto">Assunto</label>
+            <select id="assunto" name="assunto">
+              <option>Pedido de orçamento</option>
+              <option>Avaliação de pré-compra</option>
+              <option>Agendar revisão</option>
+              <option>Outro assunto</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="veiculo">Veículo <span class="opc">(opcional)</span></label>
+            <input id="veiculo" name="veiculo" placeholder="Ex.: Jeep Compass 2022">
+          </div>
+          <div class="campo cheio">
+            <label for="mensagem">Mensagem ou pedido de orçamento</label>
+            <textarea id="mensagem" name="mensagem" required placeholder="Conte o que está acontecendo com o carro ou o serviço que você precisa."></textarea>
+            <span class="erro" aria-live="polite"></span>
+          </div>
+          <div class="form-rodape">
+            <button class="btn btn-wpp" type="submit">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><use href="#ico-wpp"/></svg>
+              Enviar pelo WhatsApp
+            </button>
+            <small>O WhatsApp abre em uma nova aba com a sua mensagem já escrita.</small>
+          </div>
+        </form>
+      </div>
+
+      <aside class="info" aria-label="Endereço e contatos">
+        <dl>
+          <div><dt>Endereço</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=Dull+Motors+Rua+Comendador+Vicente+Amaral+625+Sorocaba" target="_blank" rel="noopener">Rua Comendador Vicente Amaral, 625<br>Jardim Guarujá, Sorocaba (SP)</a></dd></div>
+          <div><dt>Telefone e WhatsApp</dt><dd><a href="tel:+5515996783479">(15) 99678-3479</a></dd></div>
+          <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/dullmotors/" target="_blank" rel="noopener">@dullmotors</a></dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo.png" alt="Dull Motors">
+    <p>Dull Motors Serviços Automotivos · Nacionais e importados · Sorocaba (SP)</p>
+  </div>
+</footer>
+
+<button class="wpp-float" type="button" data-ir-form aria-label="Falar pelo WhatsApp: abrir formulário de contato">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><use href="#ico-wpp"/></svg>
+  <span class="dica">Fale pelo WhatsApp</span>
+</button>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ico-wpp" viewBox="0 0 32 32"><path fill="currentColor" d="M16.04 3C9 3 3.3 8.7 3.3 15.73c0 2.25.6 4.45 1.72 6.38L3.2 28.8l6.86-1.8a12.7 12.7 0 0 0 5.97 1.52h.01c7.03 0 12.74-5.7 12.74-12.73C28.78 8.7 23.07 3 16.04 3zm0 23.37h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-4.07 1.07 1.09-3.97-.25-.4a10.58 10.58 0 0 1-1.62-5.63c0-5.85 4.76-10.6 10.62-10.6 2.84 0 5.5 1.1 7.5 3.11a10.53 10.53 0 0 1 3.1 7.5c0 5.86-4.76 10.63-10.57 10.63zm5.81-7.94c-.32-.16-1.88-.93-2.17-1.03-.29-.11-.5-.16-.71.16-.21.32-.82 1.03-1 1.24-.19.21-.37.24-.69.08-.32-.16-1.34-.5-2.56-1.58a9.6 9.6 0 0 1-1.77-2.2c-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.18.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.71-1.71-.98-2.35-.26-.62-.52-.53-.71-.54h-.61c-.21 0-.56.08-.85.4-.29.32-1.11 1.09-1.11 2.65s1.14 3.07 1.3 3.29c.16.21 2.24 3.42 5.43 4.8.76.33 1.35.52 1.81.67.76.24 1.45.2 2 .12.61-.09 1.88-.77 2.14-1.51.27-.74.27-1.38.19-1.51-.08-.13-.29-.21-.61-.37z"/></symbol>
+</svg>
+
+<script>
+(function(){
+  var WHATSAPP = '5515996783479';
+
+  // Menu fica sólido depois que a pessoa rola a página
+  var nav = document.querySelector('.nav');
+  function navSolida(){ nav.classList.toggle('solida', window.scrollY > 40); }
+  navSolida(); window.addEventListener('scroll', navSolida, {passive:true});
+
+  // Comprimento das curvas da pista para a animação de desenho
+  document.querySelectorAll('.pista path').forEach(function(p){
+    p.style.setProperty('--len', Math.ceil(p.getTotalLength()));
+  });
+
+  // Botões que levam ao formulário (incluindo o WhatsApp flutuante)
+  document.querySelectorAll('[data-ir-form]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      var assunto = el.getAttribute('data-assunto');
+      if (assunto) document.getElementById('assunto').value = assunto;
+      var reduz = false;
+      document.getElementById('contato').scrollIntoView({behavior: reduz ? 'auto' : 'smooth'});
+      setTimeout(function(){ document.getElementById('nome').focus({preventScroll:true}); }, reduz ? 0 : 600);
+    });
+  });
+
+  // Formulário → WhatsApp com a mensagem pronta
+  var form = document.getElementById('form-contato');
+  function marcar(id, msg){
+    var campo = document.getElementById(id).closest('.campo');
+    campo.classList.toggle('invalido', !!msg);
+    campo.querySelector('.erro').textContent = msg || '';
+    return !msg;
+  }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var d = {
+      nome: form.nome.value.trim(),
+      email: form.email.value.trim(),
+      assunto: form.assunto.value,
+      veiculo: form.veiculo.value.trim(),
+      mensagem: form.mensagem.value.trim()
+    };
+    var ok = [
+      marcar('nome', d.nome ? '' : 'Informe seu nome.'),
+      marcar('email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email) ? '' : 'Informe um e-mail válido, como nome@email.com.'),
+      marcar('mensagem', d.mensagem ? '' : 'Escreva sua mensagem ou o serviço que precisa.')
+    ].every(Boolean);
+    if (!ok) { form.querySelector('.invalido input, .invalido textarea').focus(); return; }
+
+    var linhas = [
+      'Olá, Dull Motors! Vim pelo site.',
+      '',
+      '*Nome:* ' + d.nome,
+      '*E-mail:* ' + d.email,
+      '*Assunto:* ' + d.assunto
+    ];
+    if (d.veiculo) linhas.push('*Veículo:* ' + d.veiculo);
+    linhas.push('', '*Mensagem:*', d.mensagem);
+
+    var url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(linhas.join('\n'));
+    window.open(url, '_blank', 'noopener');
+  });
+})();
+</script>
+</body>
+</html>
